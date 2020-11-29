@@ -1523,14 +1523,14 @@ class ThreadWithParam : public ThreadWithParamBase {
 // Implements thread-local storage on Windows systems.
 //
 //   // Thread 1
-//   ThreadLocal<int> tl(100);  // 100 is the default value for each thread.
+//   ThreadLocal<int> tl(50);  // 50 is the default value for each thread.
 //
 //   // Thread 2
 //   tl.set(150);  // Changes the value for thread 2 only.
 //   EXPECT_EQ(150, tl.get());
 //
 //   // Thread 1
-//   EXPECT_EQ(100, tl.get());  // In thread 1, tl has the original value.
+//   EXPECT_EQ(50, tl.get());  // In thread 1, tl has the original value.
 //   tl.set(200);
 //   EXPECT_EQ(200, tl.get());
 //

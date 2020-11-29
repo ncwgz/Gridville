@@ -5,6 +5,7 @@
 #include <iostream>
 #include <algorithm>
 #include <ctime>
+#include <fstream>
 #include "Gridville.h"
 #include "gtest/gtest.h"
 
@@ -238,6 +239,19 @@ void Gridville::input_plan() {
     }
 }
 
+void Gridville::read_plan(string filepath) {
+    ifstream file(filepath);
+    file >> m >> n >> h;
+    this->p = new unsigned short[m*n]();
+    for (int i = 0; i < m; ++i) {
+        for (int j = 0; j < n; ++j) {
+            int value;
+            file >> value;
+            set(i, j, value);
+        }
+    }
+}
+
 void Gridville::test_setup() {
     this->m = 4;
     this->n = 5;
@@ -250,7 +264,7 @@ void Gridville::test_setup() {
     };
 }
 
-int* Gridville::performance_test_setup(bool is_square) {
+int* Gridville::correctness_test_setup(bool is_square) {
 
     srand(time(nullptr));
 

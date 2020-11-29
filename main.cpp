@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include "Gridville.h"
 
 using namespace std;
@@ -12,10 +13,15 @@ int main(int argc, char **argv) {
     int *result;    // {x1, y1, x2, y2}
 
     method = stoi(argv[1]);
-    cin >> m >> n >> h;
 
-    Gridville *gridville = new Gridville(m, n, h);
-    gridville->input_plan();
+//    cin >> m >> n >> h;
+//    Gridville *gridville = new Gridville(m, n, h);
+//    gridville->input_plan();
+
+    Gridville *gridville = new Gridville();
+    method = 5;
+    gridville->read_plan("../Google_tests/cases/1000/r0.txt");
+
     switch (method) {
         case 1: {
             result = gridville->dp_max_square_mem();

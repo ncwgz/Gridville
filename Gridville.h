@@ -5,6 +5,10 @@
 #ifndef GRIDVILLE_GRIDVILLE_H
 #define GRIDVILLE_GRIDVILLE_H
 
+#include <string>
+
+using namespace std;
+
 class Gridville {
 private:
     unsigned int     m;      // # of rows
@@ -26,9 +30,9 @@ public:
     int*    dp_max_rec();
 
     void    input_plan();
+    void    read_plan(string name);
     void    test_setup();
-
-    int*    performance_test_setup(bool is_square);
+    int*    correctness_test_setup(bool is_square);
 
 };
 

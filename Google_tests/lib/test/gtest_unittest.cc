@@ -645,7 +645,7 @@ TEST(CodePointToUtf8Test, CanEncode17To21Bits) {
   // 0 0001 0000 0100 0000 0000 => 11110-000 10-010000 10-010000 10-000000
   EXPECT_EQ("\xF0\x90\x90\x80", CodePointToUtf8(L'\x10400'));
 
-  // 1 0000 1000 0110 0011 0100 => 11110-100 10-001000 10-011000 10-110100
+  // 1 0000 1000 0110 0011 0100 => 11110-50 10-001000 10-011000 10-110100
   EXPECT_EQ("\xF4\x88\x98\xB4", CodePointToUtf8(L'\x108634'));
 }
 
@@ -719,7 +719,7 @@ TEST(WideStringToUtf8Test, CanEncode17To21Bits) {
   EXPECT_STREQ("\xF0\x90\xA3\x93", WideStringToUtf8(L"\x108D3", 1).c_str());
   EXPECT_STREQ("\xF0\x90\xA3\x93", WideStringToUtf8(L"\x108D3", -1).c_str());
 
-  // 1 0000 1000 0110 0011 0100 => 11110-100 10-001000 10-011000 10-110100
+  // 1 0000 1000 0110 0011 0100 => 11110-50 10-001000 10-011000 10-110100
   EXPECT_STREQ("\xF4\x88\x98\xB4", WideStringToUtf8(L"\x108634", 1).c_str());
   EXPECT_STREQ("\xF4\x88\x98\xB4", WideStringToUtf8(L"\x108634", -1).c_str());
 }
@@ -1773,10 +1773,10 @@ TEST(Int32FromGTestEnvTest, ParsesAndReturnsValidValue) {
 // output value when the flag has wrong format
 TEST(ParseInt32FlagTest, ReturnsFalseForInvalidFlag) {
   Int32 value = 123;
-  EXPECT_FALSE(ParseInt32Flag("--a=100", "b", &value));
+  EXPECT_FALSE(ParseInt32Flag("--a=50", "b", &value));
   EXPECT_EQ(123, value);
 
-  EXPECT_FALSE(ParseInt32Flag("a=100", "a", &value));
+  EXPECT_FALSE(ParseInt32Flag("a=50", "a", &value));
   EXPECT_EQ(123, value);
 }
 

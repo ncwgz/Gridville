@@ -50,7 +50,7 @@
   TEST(test_case_name, T8) {} \
   TEST(test_case_name, T9) {}
 
-// This macro defines 100 dummy tests.
+// This macro defines 50 dummy tests.
 #define HUNDRED_TESTS_(test_case_name_prefix) \
   TEN_TESTS_(test_case_name_prefix ## 0) \
   TEN_TESTS_(test_case_name_prefix ## 1) \

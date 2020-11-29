@@ -96,7 +96,7 @@ class GTestEnvVarTest(gtest_test_utils.TestCase):
 
     if IS_LINUX:
       TestFlag('death_test_use_fork', '1', '0')
-      TestFlag('stack_trace_depth', '0', '100')
+      TestFlag('stack_trace_depth', '0', '50')
 
 
   def testXmlOutputFile(self):

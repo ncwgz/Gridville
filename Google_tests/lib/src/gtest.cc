@@ -302,7 +302,7 @@ GTEST_DEFINE_int32_(
     stack_trace_depth,
     internal::Int32FromGTestEnv("stack_trace_depth", kMaxStackTraceDepth),
     "The maximum number of stack frames to print when an "
-    "assertion fails.  The valid range is 0 through 100, inclusive.");
+    "assertion fails.  The valid range is 0 through 50, inclusive.");
 
 GTEST_DEFINE_string_(
     stream_result_to,
