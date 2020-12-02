@@ -312,19 +312,6 @@ TEST(Performance_Rectangle_10, alg5) {
     }
 }
 
-TEST(Performance_Rectangle_50, alg3) {
-    for (int i = 0; i < 10; ++i) {
-        std::string filepath("../../Google_tests/cases/50/r" + to_string(i) + ".txt");
-        gridville->read_plan(filepath);
-        int* result = gridville->bf_max_rec();
-        ASSERT_EQ(16, result[0]);
-        ASSERT_EQ(21, result[1]);
-        ASSERT_EQ(24, result[2]);
-        ASSERT_EQ(29, result[3]);
-        delete result;
-    }
-}
-
 TEST(Performance_Rectangle_50, alg4) {
     for (int i = 0; i < 10; ++i) {
         std::string filepath("../../Google_tests/cases/50/r" + to_string(i) + ".txt");
